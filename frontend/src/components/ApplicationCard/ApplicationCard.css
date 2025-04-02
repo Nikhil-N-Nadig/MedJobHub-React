@@ -1,0 +1,176 @@
+.application-card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: auto;
+    min-width: 350px;
+    max-width: 500px;
+    margin: 10px auto;
+    text-align: left;
+    width: 100%;
+}
+
+.application-card:hover {
+    transform: translateY(-5px);
+}
+
+.application-card h3 {
+    color: #007bff;
+    font-size: 22px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.application-card p {
+    font-size: 16px;
+    color: #333;
+    margin: 5px 0;
+}
+
+.application-card p strong {
+    font-weight: bold;
+}
+
+.status-form {
+    margin-top: 15px;
+}
+
+.status-form label {
+    font-weight: 600;
+    color: #333;
+}
+
+.status-form select,
+.status-form button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.status-form button {
+    background: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.status-form button:hover {
+    background: #0056b3;
+}
+
+.no-applications {
+    text-align: center;
+    font-size: 20px;
+    color: #888;
+    font-weight: bold;
+    margin-top: 50px;
+}
+
+.applications-container .apply-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    width: 100%;
+}
+
+.applications-container .apply-btn:hover {
+    background: #0056b3;
+}
+
+/* Responsive Design */
+
+/* Large Screens (Desktops) */
+@media (min-width: 1200px) {
+    .application-card {
+        max-width: 600px;
+    }
+}
+
+/* Tablets and Medium Screens */
+@media (max-width: 992px) {
+    .application-card {
+        max-width: 450px;
+        padding: 18px;
+    }
+
+    .status-form select,
+    .status-form button {
+        padding: 8px;
+    }
+
+    .application-card h3 {
+        font-size: 20px;
+    }
+}
+
+/* Mobile Devices */
+@media (max-width: 768px) {
+    .application-card {
+        max-width: 90%;
+        min-width: 280px;
+        padding: 15px;
+    }
+
+    .application-card h3 {
+        font-size: 18px;
+    }
+
+    .application-card p {
+        font-size: 14px;
+    }
+
+    .status-form select,
+    .status-form button {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .applications-container .apply-btn {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+}
+
+/* Small Phones */
+@media (max-width: 480px) {
+    .application-card {
+        width: 95%;
+        padding: 12px;
+    }
+
+    .application-card h3 {
+        font-size: 16px;
+    }
+
+    .application-card p {
+        font-size: 13px;
+    }
+
+    .status-form select,
+    .status-form button {
+        font-size: 13px;
+        padding: 6px;
+    }
+
+    .applications-container .apply-btn {
+        font-size: 13px;
+        padding: 7px 10px;
+    }
+}

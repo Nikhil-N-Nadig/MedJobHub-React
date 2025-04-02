@@ -1,0 +1,44 @@
+h2.applications-head {
+    color: #444444;
+    font-weight: 600;
+    font-size: 48px;
+    font-weight: bold;
+    margin: 30px 0;
+    text-align: center;
+}
+
+.applications-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+    padding: 40px;
+    max-width: 1400px;
+    margin: auto;
+    min-height: 50vh;
+}
+
+@media (max-width: 768px) {
+    h2.applications-head {
+        font-size: 40px;
+    }
+    .application-container {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 468px) {
+    h2.applications-head {
+        font-size: 35px;
+    }
+    .application-container {
+        padding: 20px;
+    }
+}
+
+.no-applications {
+    text-align: center;
+    font-size: 20px;
+    color: #888;
+    font-weight: bold;
+    margin-top: 50px;
+}

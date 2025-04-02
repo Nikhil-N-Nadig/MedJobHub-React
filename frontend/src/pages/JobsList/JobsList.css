@@ -1,0 +1,46 @@
+.jobs-head {
+    color:  #444444;
+    font-weight: 600;
+    font-size: 48px;
+    font-weight: bold;
+    margin: 30px 0 0 0;
+    text-align: center;
+}
+
+
+.job-info {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.job-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Ensure each card is at least 320px */
+    gap: 60px;
+    padding: 40px 0;
+    max-width: 1200px;
+    margin: auto;
+    min-height: 50vh;
+}
+
+.add-job-info {
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+    margin-top:20px ;
+  }
+  
+
+  @media (max-width: 768px) {
+    h2.jobs-head {
+        font-weight: 600;
+        font-size: 40px;
+    }
+    .job-container {
+        padding: 20px;
+    }
+}
