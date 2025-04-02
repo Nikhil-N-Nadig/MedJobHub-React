@@ -19,7 +19,9 @@ from flask_login import LoginManager,login_required
 from flask_cors import CORS,cross_origin
 from config import Config
 from flask_restful import fields, marshal
+from dotenv import load_dotenv
 
+load_dotenv()
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
@@ -28,7 +30,8 @@ db = SQLAlchemy()
 
 db.init_app(app)
 
-CORS(app, resources={r"/*": {"origins": "http://localhost:5173"}}, supports_credentials=True)
+allowed_url="http://medjobhub.com"
+CORS(app, resources={r"/*": {"origins": "http://medjobhub.com"}}, supports_credentials=True)
 
 app.config.from_object(Config) 
 
@@ -51,13 +54,12 @@ app.config['ALLOWED_EXTENSIONS'] = {'pdf', 'doc', 'docx', 'jpg', 'png'}
 # Flask-Mail Configuration
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
-app.config['MAIL_USERNAME'] = "medjobhub1234@gmail.com"
-app.config['MAIL_PASSWORD'] = "taen vhzs yuja fztl"  # Use App Password if needed
+app.config['MAIL_USERNAME'] = os.getenv('EMAIL_ID')
+app.config['MAIL_PASSWORD'] = os.getenv('EMAIL_APP_PASSWORD')
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
 
 
-allowed_url="http://localhost:5173"
 def allowed_file(filename):
     allowed_extensions = {'pdf', 'doc', 'docx', 'jpg', 'png'}
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in allowed_extensions
