@@ -9,7 +9,7 @@ import { useFlash } from "../../context/FlashContext";
 
 const JobApplications = () => {
   const [applications, setApplications] = useState([]);
-  
+  const { setFlashMessage } = useFlash();
   const user = useSelector((state) => state.auth.userData); // Get user from Redux
   const role = user?.role;
 
@@ -27,10 +27,9 @@ const JobApplications = () => {
           setApplications(response.applications);
         }
       } catch (error) {
-        console.error("Error fetching applications:", error);
+        setFlashMessage(`Error fetching applications: ${error}`, "error");
       }
     };
-
     fetchApplications();
   }, [role]);
 

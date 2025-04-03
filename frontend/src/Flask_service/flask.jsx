@@ -29,10 +29,8 @@ class BackendService {
   }
 
   async verifyOtp({ username, otp }) {
-    console.log("Functionis called")
     try {
       const response = await this.api.post("/verify_otp", { username, otp });
-      console.log(`Data at backend service ${JSON.stringify(response.data, null, 2)}`)
       return response.data;
     } catch (error) {
       throw error.response?.data || "OTP verification failed";
@@ -62,7 +60,6 @@ class BackendService {
   async getAvailableJobs() {
     try {
       const response = await this.api.get("/available_jobs",{withCredentials:true});
-      console.log("at backendservice",response)
       return response.data;
     } catch (error) {
       throw error.response?.data || "Failed to fetch jobs";
@@ -72,7 +69,6 @@ class BackendService {
   async getEmployerJobs() {
     try {
       const response = await this.api.get("/your_jobs",{withCredentials:true});
-      console.log("at backendservice",response)
       return response.data;
     } catch (error) {
       throw error.response?.data || "Failed to fetch employer jobs";
@@ -164,7 +160,6 @@ class BackendService {
   async uploadImageToCloudinary() {
     try {
       const response = await this.api.post('/upload_image_to_cloudinary');
-      
       return response.data.url || null;
     } catch (error) {
       throw error.response?.data || "Failed to upload image";

@@ -865,6 +865,7 @@
     font-size: 24px;
     color: #0033cc;
     margin-bottom: 10px;
+    font-weight: 600;
   }
   
   .subscription-box p {
@@ -888,7 +889,10 @@
     font-size: 16px;
     box-sizing: border-box;
   }
-  
+
+  .subscription-box form button{
+    
+  }
   .subscription-box form input:focus {
     border-color: #007bff;
     outline: none;

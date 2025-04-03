@@ -39,7 +39,6 @@ const ApplyJobForm = () => {
     };
 
     try {
-      console.log("Called backend function and id is: ", job_id);
       const response = await backendService.applyJob(job_id, updatedFormData);
       setFlashMessage(response.message, "success");
       navigate('/job-applications');

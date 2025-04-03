@@ -34,7 +34,6 @@ const ApplicationCard = ({ application, userRole, userId, onUpdateStatus, onWith
         setFlashMessage(response.message || "Failed to withdraw application.", "error");
       }
     } catch (error) {
-      console.error("Error withdrawing application:", error);
       setFlashMessage("An error occurred while withdrawing the application", "error");
     }
     setWithdrawing(false); 

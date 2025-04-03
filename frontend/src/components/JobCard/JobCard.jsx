@@ -27,7 +27,6 @@ const JobCard = ({ job, userRole, userId, onDeleteJob }) => {
         setFlashMessage(response.message || "Failed to delete job.", "error");
       }
     } catch (error) {
-      console.error("Error deleting job:", error);
       setFlashMessage("An error occurred while deleting the job.", "error");
     }
     closeModal();

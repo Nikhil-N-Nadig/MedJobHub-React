@@ -35,6 +35,8 @@ const Logout = () => {
                   return;
               }
           }
+
+          //If cant get token then logout in state
           localStorage.removeItem("userData");
           localStorage.removeItem("authToken");
           dispatch(authlogout());

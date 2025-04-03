@@ -26,10 +26,8 @@ const Verifyotp = () => {
 
             if (response.success) {
                 const user= response.user;
-                console.log("Verify otp success: ",user)
                 localStorage.setItem("authToken", user.auth_token);
                 localStorage.setItem("userData", JSON.stringify(user));
-                console.log("Authtoken saved succefully: ",user.auth_token) 
 
                 dispatch(authLogin({ userData: user }));
 

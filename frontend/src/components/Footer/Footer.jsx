@@ -11,42 +11,42 @@ const Footer = () => {
   return (
     <footer>
       <div className="footer-container">
-        <div class="footer-column logo-section">
-          <img class="no-select" src={`${url}${images['logo']}`} alt="Image" />
-            <h1 class="no-select">MedJobHub</h1>
+        <div className="footer-column logo-section">
+          <img className="no-select" src={`${url}${images['logo']}`} alt="Image" />
+            <h1 className="no-select">MedJobHub</h1>
         </div>
 
         
-        <div class="footer-column address-section">
+        <div className="footer-column address-section">
           <p><strong>MedJobHub Private Limited</strong></p>
           <p>13/21, 1st Floor, 3rd Cross, 7th Main</p>
           <p>Syndicate Bank Colony, Banashankari 3rd Stage</p>
           <p>Bengaluru-560085</p>
         </div>
-        <div class="footer-column download-section">
+        <div className="footer-column download-section">
           <h3>Download Our App</h3>
-          <div class="store-buttons">
+          <div className="store-buttons">
               <a href="https://www.apple.com/app-store/" target="_blank">
                 <img
                   src={`${url}${images['app_store']}`}
                   alt="App Store"
-                  class="store-icon" />
+                  className="store-icon" />
               </a>
               <a href="https://play.google.com/" target="_blank">
                 <img src={`${url}${images['play_store']}`} 
-                  class="store-icon" />
+                  className="store-icon" />
               </a>
           </div>
         </div>
       </div>
-      <div class="footer-bottom">
-        <div class="social-media">
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-linkedin"></i></a>
+      <div className="footer-bottom">
+        <div className="social-media">
+          <a href="#"><i className="fab fa-facebook-f"></i></a>
+          <a href="#"><i className="fab fa-twitter"></i></a>
+          <a href="#"><i className="fab fa-instagram"></i></a>
+          <a href="#"><i className="fab fa-linkedin"></i></a>
         </div>
-        <div class="links">
+        <div className="links">
           <ul>
             <li><a href="#">Partner With Us</a></li>
             <li><a href="#">Careers</a></li>

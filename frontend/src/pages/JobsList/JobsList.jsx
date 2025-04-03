@@ -5,10 +5,10 @@ import { useState,useEffect } from "react";
 import backendService from "../../Flask_service/flask";
 import { useSelector } from "react-redux";
 import "../JobsList/JobsList.css"
-
+import { useFlash } from "../../context/FlashContext";
 const JobListings = () => {
   const [jobs, setJobs] = useState([]);
-
+  const { setFlashMessage } =useFlash()
   const user = useSelector((state) => state.auth.userData);
   const role = user?.role;
 
@@ -17,7 +17,7 @@ const JobListings = () => {
       try {
         let response;
         if(!user){
-          console.log("Please Login")
+          setFlashMessage("Please Login","error")
         } 
   
         if (role === "employer") {
@@ -25,14 +25,11 @@ const JobListings = () => {
         } else {
           response = await backendService.getAvailableJobs();
         }
-  
-        console.log("Response is:",response);
         if (response.success) {
-          console.log(response.jobs);
           setJobs(response.jobs);
         }
       } catch (error) {
-        console.error("Error fetching jobs:", error);
+        setFlashMessage(`Error fetching jobs: ${error}` ,"error");
       }
     };
   

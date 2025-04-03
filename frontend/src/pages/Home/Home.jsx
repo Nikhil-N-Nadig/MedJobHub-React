@@ -1,6 +1,8 @@
 import React from "react";
 import { replace, useNavigate} from 'react-router-dom'
 import '../Home/Home.css'
+import { useState } from "react";
+import { useFlash } from "../../context/FlashContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUsers, faHospital, faBriefcase, faTrophy, faHeartbeat, faUserMd, faLaptop } from "@fortawesome/free-solid-svg-icons";
 const url="https://res.cloudinary.com/dcslhsano/image/upload/"
@@ -14,6 +16,14 @@ const images={
 
 const Home=()=>{
     const navigate=useNavigate()
+
+    const [subscribed, setSubscribed] = useState(false);
+    const { setFlashMessage } = useFlash();
+  const handleSubscribe = (event) => {
+    event.preventDefault();
+    setFlashMessage("🎉 Thank you for subscribing! 🎉","success");
+    setSubscribed(true);
+  };
     return (
     <>
     <div className="hero">
@@ -240,25 +250,29 @@ const Home=()=>{
       <div className="video-container">
         <iframe
           src="https://www.youtube.com/embed/HXkIBRMCrW8" 
-          frameborder="0"
+          frameBorder="0"
           allow="autoplay; encrypted-media"
-          allowfullscreen>
+          allowFullScreen>
           </iframe>
       </div>
+    <div className="subscription-box">
+      <h2>Stay Connected</h2>
+      <p>Subscribe to receive newsletters, magazines, and notifications.</p>
 
-      <div className="subscription-box">
-        <h2>Stay Connected</h2>
-        <p>Subscribe to receive newsletters, magazines, and notifications.</p>
-        <form>
+      <form onSubmit={handleSubscribe}>
           <input type="text" placeholder="Enter Your Name" required />
           <input type="email" placeholder="Enter Your Email" required />
           <input type="tel" placeholder="Enter Your Phone Number" required />
-          <button type="submit">Subscribe</button>
+          {subscribed ? (
+          <button disabled >Subscribed</button>
+      ) : (
+        <button type="submit">Subscribe</button>
+      )}
         </form>
-      </div>
     </div>
-        </>
-    )
-}
+    </div>
+    </>
+  );
+};
 
 export default Home;
