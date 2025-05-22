@@ -38,9 +38,9 @@ def upload_files_to_cloudinary(file_name):
     try:
         response = cloudinary.uploader.upload(file_name,resource_type="raw")
         
-        image_url = response['secure_url']
-        print("File uploaded successfully for ", file_name, "and url is:", image_url)
-        return image_url  
+        file_url = response['secure_url']
+        print("File uploaded successfully for ", file_name, "and url is:", file_url)
+        return file_url  
     except Exception as e:
         print("Error occurred:", e)
         return None  

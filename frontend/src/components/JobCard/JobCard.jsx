@@ -43,7 +43,7 @@ const JobCard = ({ job, userRole, userId, onDeleteJob }) => {
       <p><strong>Description:</strong> {job.description}</p>
       <p><strong>Employer:</strong> {job.employer.username}</p>
       
-      <Link to={`/job-listings/job-info/${job.id}`} className="apply-btn" style={{ backgroundColor: "#666" }}>
+      <Link to={`/job-listings/job-info/${job.id}`} className="apply-btn more-info">
         More Info
       </Link>
 
@@ -51,7 +51,7 @@ const JobCard = ({ job, userRole, userId, onDeleteJob }) => {
         <>
           <button
             type="button"
-            className="apply-btn"
+            className="apply-btn delete-job"
             onClick={openModal}
             style={{ marginTop: "5px" }}
           >

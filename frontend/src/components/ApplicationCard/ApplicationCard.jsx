@@ -3,6 +3,7 @@ import "../ApplicationCard/ApplicationCard.css";
 import backendService from "../../Flask_service/flask";
 import { useFlash } from "../../context/FlashContext";
 import ConfirmModal from "../ConfirmModel/ConfirmModel";
+import { Link } from "react-router-dom";
 
 const ApplicationCard = ({ application, userRole, userId, onUpdateStatus, onWithdraw }) => {
   const [status, setStatus] = useState(application.application_status);
@@ -82,24 +83,44 @@ const ApplicationCard = ({ application, userRole, userId, onUpdateStatus, onWith
         </p>
 
         {userRole === "employer" && userId === application.job.posted_by ? (
-          <form onSubmit={handleUpdateStatus} className="status-form">
-            <label htmlFor="status">Update Status:</label>
-            <select value={status} onChange={handleStatusChange} required>
-              <option value="Pending">Pending</option>
-              <option value="Shortlisted">Shortlisted</option>
-              <option value="Interview Scheduled">Interview Scheduled</option>
-              <option value="Hired">Hired</option>
-              <option value="Rejected">Rejected</option>
-            </select>
-            <button type="submit" className="update-btn" disabled={loading}>
-              {loading ? "Updating..." : "Update"}
-            </button>
-          </form>
-        ) : (
-          <button type="button" className="apply-btn" onClick={openModal} disabled={withdrawing}>
-            {withdrawing ? "Withdrawing..." : "Withdraw Application"}
-          </button>
-        )}
+            <>
+              <form onSubmit={handleUpdateStatus} className="status-form">
+                <label htmlFor="status">Update Status:</label>
+                <select value={status} onChange={handleStatusChange} required>
+                  <option value="Pending">Pending</option>
+                  <option value="Shortlisted">Shortlisted</option>
+                  <option value="Interview Scheduled">Interview Scheduled</option>
+                  <option value="Hired">Hired</option>
+                  <option value="Rejected">Rejected</option>
+                </select>
+                <button type="submit" className="update-btn" disabled={loading}>
+                  {loading ? "Updating..." : "Update"}
+                </button>
+              </form>
+              
+              <Link
+                to={`/chat/${userId}/${application.applicant.id}`}
+                className="apply-btn"
+                style={{ marginTop: "5px", backgroundColor: "#2e8b57" }}
+              >
+                Chat with Candidate
+              </Link>
+            </>
+          ) : (
+            <>
+              <button type="button" className="apply-btn" onClick={openModal} disabled={withdrawing}>
+                {withdrawing ? "Withdrawing..." : "Withdraw Application"}
+              </button>
+
+              <Link
+                to={`/chat/${userId}/${application.job.posted_by}`}
+                className="apply-btn"
+                style={{ marginTop: "5px", backgroundColor: "#2e8b57" }}
+              >
+                Chat with Employer
+              </Link>
+            </>
+          )}
       </div>
 
       {/* Modal for delete confirmation */}

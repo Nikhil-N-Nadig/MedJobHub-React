@@ -1,212 +1,156 @@
+/* General Styles */
 .signin-container1 {
-    width: 100%;
-    height: 90vh; /* Full viewport height */
-    background: #ffffff82;
-    background-position: center;
-    background-size: cover;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    padding: 2rem;
-    box-sizing: border-box;
-  }
-  
-  .signin-form-box {
-    width: 100%;
-    max-width: 500px;
-    height: 520px; /* Height increased */
-    background: white;
-    padding: 40px 40px; /* Adjusted padding */
-    text-align: center;
-    box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.3);
-    border-radius: 20px;
-    color: #0033cc;
-    border: 3px solid #00000022;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start; /* Align items from the top */
-  }
-  
-  .signin-form-box h1 {
-    font-size: 40px; /* Increased header size */
-    margin-top: 0; /* No top margin */
-    margin-bottom: 20px; /* Increased bottom margin */
-    color: #007bff;
-    font-weight: 600;
-  }
-  
-  .signin-form-box h1::after {
-    content: '';
-    width: 70px;
-    height: 5px;
-    background: #007bff;
-    display: block;
-    margin: 12px auto 0;
-    margin-top: 0;
-  }
-  
-  /* Input Fields */
-  .signin-input-field {
-    background: #eaeaea;
-    margin: 25px 0; /* Increased margin between input fields */
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    padding: 12px 18px;
-  }
-  
-  .signin-input-field input {
-    width: 100%;
-    background: transparent;
-    border: 0;
-    outline: none;
-    padding: 8px;
-    font-size: 16px;
-    color: #222;
-  }
-  .signin-input-field input::placeholder {
-    color: gray; 
-    opacity: 1; 
-  }
-  
-  /* Buttons */
-  .signin-btn-field {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-top: 30px;
-    margin-bottom: 20px; 
-  
-  }
+  width: 100%;
+  height: 100vh;
+  background: url('bg4.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  box-sizing: border-box;
+  transition: background 0.5s ease-in-out;
+}
 
-  .signin-btn-field .loader {
-    border: 4px solid #f3f3f3;
-    border-top: 4px solid #3498db;
-    border-radius: 50%;
-    width: 16px;
-    height: 16px;
-    animation: spin 1s linear infinite;
-    display: inline-block;
-    margin-left: 8px;
-  }
-  
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-  
-  
-  .signin-btn-field button {
-    padding: 13px 28px;
-  background-color: #007bff;
+/* Glassmorphic Sign-in Form */
+.signin-form-box {
+  width: 100%;
+  max-width: 450px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  padding: 40px;
+  text-align: center;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.6);
+  border-radius: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.4s ease-in-out;
+  animation: fadeIn 0.6s ease-in-out, floating 3s infinite ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes floating {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+  100% { transform: translateY(0); }
+}
+
+/* Heading */
+.signin-form-box h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #0056b3;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.signin-form-box h1::after {
+  content: "";
+  width: 80px;
+  height: 5px;
+  background: #ff4081;
+  display: block;
+  margin: 10px auto 0;
+  border-radius: 10px;
+  transition: all 0.4s ease-in-out;
+}
+
+/* Input Fields with Black Border Shadow */
+.signin-input-field {
+  background: rgba(255, 255, 255, 0.4);
+  margin: 20px 0;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  padding: 14px 18px;
+  transition: all 0.3s ease-in-out;
+}
+
+.signin-input-field:hover {
+  transform: scale(1.02);
+}
+
+.signin-input-field input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 10px;
+  font-size: 16px;
+  color: #333;
+}
+
+.signin-input-field input::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+/* Button Styles */
+.signin-btn-field button {
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(90deg, #0056b3, #ff4081);
   color: white;
   font-size: 18px;
   font-weight: bold;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.4s ease, transform 0.3s;
+  position: relative;
+  overflow: hidden;
   margin-bottom: 5px;
-  }
-  
-  .signin-btn-field button:hover {
-    background-color: #0056b3;
-  }
-  /* .btn-field button {
-    padding: 14px 28px;
-    font-size: 20px;
-    border-radius: 10px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .btn-field button:hover {
-    background-color: #007bff;
-  } */
-  
-  .signin-form-box form p {
-    font-size: 14px;
-    margin-top: 15px;
-    text-align: center;
-  }
-  
-  .signin-form-box form p a {
-    text-decoration: none;
-    color: #0033cc;
-    font-weight: bold;
-  }
-  
-  
-  
-  /* ======== RESPONSIVE DESIGN ======== */
-  @media (max-width: 768px) {
-    .signin-container1 {
-      height: auto;
-      padding: 2rem 1rem;
-    }
-  
-    .signin-form-box {
-      width: 100%;
-      max-width: 80%;
+}
+
+.signin-btn-field button:hover {
+  background: linear-gradient(90deg, #ff4081, #0056b3);
+  transform: scale(1.08);
+  box-shadow: 0 0 15px rgba(255, 64, 129, 0.5);
+}
+
+.signin-btn-field button:active {
+  transform: scale(0.96);
+}
+
+/* Animated Background Glow */
+.signin-btn-field button::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent);
+  transition: all 0.4s ease;
+  opacity: 0;
+}
+
+.signin-btn-field button:hover::before {
+  opacity: 1;
+  transform: scale(1.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .signin-form-box {
+      width: 90%;
       padding: 30px;
-    }
-  
-    .signin-form-box h1 {
+  }
+
+  .signin-form-box h1 {
       font-size: 32px;
-    }
-  
-    .signin-input-field {
-      padding: 10px 15px;
-    }
-  
-    .signin-input-field input {
-      font-size: 14px;
-      padding: 10px;
-    }
-  
-    .signin-btn-field button {
-      font-size: 16px;
-      padding: 10px 20px;
-    }
-  
-    .signin-form-box  form p {
-      font-size: 13px;
-    }
   }
-  
-  @media (max-width: 480px) {
-    .signin-form-box {
+}
+
+@media (max-width: 480px) {
+  .signin-form-box {
       padding: 25px;
-    }
-  
-    .signin-form-box h1 {
-      font-size: 28px;
-    }
-  
-    .signin-input-field {
-      margin: 15px 0;
-      padding: 8px 12px;
-    }
-  
-    .signin-input-field input {
-      font-size: 14px;
-      padding: 8px;
-    }
-  
-    .signin-btn-field {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .signin-btn-field button {
-      font-size: 16px;
-      width: 100%;
-      padding: 12px;
-    }
-  
-    .signin-form-box  form p {
-      font-size: 12px;
-    }
   }
-  
+
+  .signin-form-box h1 {
+      font-size: 28px;
+  }
+}

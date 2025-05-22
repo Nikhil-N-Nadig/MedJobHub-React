@@ -20,6 +20,7 @@ from flask_cors import CORS,cross_origin
 from config import Config
 from flask_restful import fields, marshal
 from dotenv import load_dotenv
+from flask_socketio import SocketIO, join_room, emit
 
 load_dotenv()
 
@@ -30,8 +31,9 @@ db = SQLAlchemy()
 
 db.init_app(app)
 
-allowed_url="http://medjobhub.com"
-CORS(app, resources={r"/*": {"origins": "http://medjobhub.com"}}, supports_credentials=True)
+#http://medjobhub.com
+allowed_url="http://localhost:5173"
+CORS(app, resources={r"/*": {"origins": "http://localhost:5173"}}, supports_credentials=True)
 
 app.config.from_object(Config) 
 

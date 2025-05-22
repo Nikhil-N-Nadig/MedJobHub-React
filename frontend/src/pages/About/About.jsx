@@ -1,6 +1,7 @@
 import React from "react";
 import '../About/About.css'
-
+import { useFlash } from "../../context/FlashContext";
+import { useState } from "react";
 import { 
   FaHandshake, FaCogs, FaBolt, FaCheckCircle, 
   FaNetworkWired, FaHeadset, FaBriefcase, 
@@ -12,7 +13,15 @@ const images={
 
 
 const About = () => {
+  const [subscribed, setSubscribed] = useState(false);
+      const { setFlashMessage } = useFlash();
+    const handleSubscribe = (event) => {
+      event.preventDefault();
+      setFlashMessage("🎉 Thank you for subscribing! 🎉","success");
+      setSubscribed(true);
+    };
   return (
+    <>
     <div className="about">
       {/* Hero Section */}
       <header className="about-hero">
@@ -161,6 +170,33 @@ const About = () => {
         </div>
       </section>
     </div>
+    {/* Video Section */}
+    <div className="content-wrapper">
+      <div className="video-container">
+        <iframe
+          src="https://www.youtube.com/embed/HXkIBRMCrW8" 
+          frameBorder="0"
+          allow="autoplay; encrypted-media"
+          allowFullScreen>
+          </iframe>
+      </div>
+    <div className="subscription-box">
+      <h2>Stay Connected</h2>
+      <p>Subscribe to receive newsletters, magazines, and notifications.</p>
+
+      <form onSubmit={handleSubscribe}>
+          <input type="text" placeholder="Enter Your Name" required />
+          <input type="email" placeholder="Enter Your Email" required />
+          <input type="tel" placeholder="Enter Your Phone Number" required />
+          {subscribed ? (
+          <button disabled >Subscribed</button>
+      ) : (
+        <button type="submit">Subscribe</button>
+      )}
+        </form>
+    </div>
+    </div>
+    </>
   );
 };
 

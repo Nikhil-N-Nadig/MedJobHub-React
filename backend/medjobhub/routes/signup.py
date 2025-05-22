@@ -4,7 +4,7 @@ from medjobhub.models import User
 from werkzeug.exceptions import BadRequest
 from .upload_cloudinary import upload_files_to_cloudinary
 
-#SigIn
+#SignIn
 @app.route('/signup', methods=['POST'])
 def signup():
     try:
@@ -54,19 +54,10 @@ def signup():
         if role == "job_seeker" and 'resume' in request.files:
             file = request.files['resume']
             if file and allowed_file(file.filename):
-                filename = secure_filename(file.filename)
-                file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-                file.save(file_path)
-        
-                cloudinary_url = upload_files_to_cloudinary(file_path)
+                cloudinary_url = upload_files_to_cloudinary(file)  # Upload directly
                 if not cloudinary_url:
                     return jsonify({"success": False, "message": "Failed to upload resume to Cloudinary."})
                 resume = cloudinary_url
-
-                try:
-                    os.remove(file_path)
-                except Exception as e:
-                    print("Error deleting local file:", e)
             else:
                 return jsonify({"success": False, "message": "Invalid resume file format. Only PDF, DOC, DOCX allowed."})
 

@@ -57,6 +57,9 @@ const Footer = () => {
           </ul>
         </div>
       </div>
+      {/* <div class="footer-chat">
+          💬 Need Help?
+      </div> */}
     </footer>
   );
 };
